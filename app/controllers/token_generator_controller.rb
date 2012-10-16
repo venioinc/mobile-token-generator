@@ -6,9 +6,9 @@ class TokenGeneratorController < ApplicationController
 		# iPad
 		if request.user_agent =~ /iPad|iPhone|iPod/ then
 			@token = Token.create! :token => generate_identifier
-			render :text => @token.token
+			render :text => "Thank you for verifing that you're on an iPhone/iPod/iPod Touch, your token is: " + @token.token
 		else
-			render :text => "NO"
+			render :text => "Please access this website using an iPhone, iPad or iPod Touch to receive a token!"
 		end
 	end
 
