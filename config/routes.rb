@@ -57,4 +57,5 @@ MobileTokenGenerator::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   get '/' => 'token_generator#index'
+  get '/verify/:token' => 'token_generator#verify'
 end

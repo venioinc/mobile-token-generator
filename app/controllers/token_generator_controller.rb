@@ -22,4 +22,14 @@ class TokenGeneratorController < ApplicationController
 	)
 	end
 
+	def verify
+		tokens = Token.where :token => params[:token]
+
+		if tokens.count == 1 then
+			@token = tokens.first
+			render :text => "VALID", :status => :ok
+		else
+			render :text => "INVALID", :status => :not_found
+		end
+	end
 end
